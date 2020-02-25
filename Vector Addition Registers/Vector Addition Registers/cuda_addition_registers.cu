@@ -27,6 +27,7 @@ __global__ void cuda_calculator(type* a, type* b, type* c, int num_calcs)
     int end_index = start_index + num_calcs;
 
     //Add the vectors in the current thread index.
+    #pragma unroll
     for (int i = start_index; i < end_index; i++)
         c[i] = a[i] + b[i];
 }
